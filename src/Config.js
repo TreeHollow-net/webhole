@@ -4,25 +4,25 @@ import './Config.css';
 import { HighlightedMarkdown } from './Common';
 
 const BUILTIN_IMGS = {
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/gbp.jpg':
+  './static/bg/gbp.jpg':
     '寻觅繁星（默认）',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/eriri.jpg':
+  './static/bg/eriri.jpg':
     '平成著名画师',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/yurucamp.jpg':
+  './static/bg/yurucamp.jpg':
     '露营天下第一',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/minecraft.jpg':
+  './static/bg/minecraft.jpg':
     '麦恩·库拉夫特',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/cyberpunk.jpg':
+  './static/bg/cyberpunk.jpg':
     '赛博城市',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/bj.jpg':
+  './static/bg/bj.jpg':
     '城市的星光',
-  'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/sif.jpg':
+  './static/bg/sif.jpg':
     '梦开始的地方',
 };
 
 const DEFAULT_CONFIG = {
   background_img:
-    'https://cdn.jsdelivr.net/gh/thuhole/webhole@gh-pages/static/bg/gbp.jpg',
+    './static/bg/bj.jpg',
   background_color: '#113366',
   pressure: false,
   easter_egg: true,
@@ -453,7 +453,7 @@ export class ConfigUI extends PureComponent {
           <p>
             新功能建议或问题反馈请在&nbsp;
             <a
-              href="https://github.com/thuhole/thuhole-go-backend/issues"
+              href={process.env.REACT_APP_FEEDBACK_URL}
               target="_blank"
             >
               GitHub <span className="icon icon-github" />

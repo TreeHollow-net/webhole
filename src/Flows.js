@@ -1664,7 +1664,7 @@ export class Flow extends PureComponent {
                 &nbsp;Loading...
               </span>
             ) : (
-              '© thuhole'
+              '© ' + process.env.REACT_APP_AUTHOR
             )
           }
         />
