@@ -43,8 +43,8 @@ jobs:
           sed -i 's|"https://cdn.jsdelivr.net/gh/'"${REPO_NAME}"'@'"$DEPLOY_BRANCH"'","/service-worker.js"|".","/service-worker.js"|' build/static/js/*.js
           echo "replace service-worker.js"
           sed -i 's|storage.googleapis.com/workbox-cdn/releases/4.3.1|cdn.jsdelivr.net/npm/workbox-cdn@4.3.1/workbox|g' build/service-worker.js
-          echo "replace service-worker.js"
-          sed -i 's|https://cdn.jsdelivr.net/gh/'"${REPO_NAME}"'@'"$DEPLOY_BRANCH"'/static/bg|./static/bg|g' build/static/js
+          echo "replace workbox-cdn"
+          sed -i 's|https://cdn.jsdelivr.net/gh/'"${REPO_NAME}"'@'"$DEPLOY_BRANCH"'/static/bg|./static/bg|g' build/static/js/*
           echo "replace pics"
           echo "end replace"
 
