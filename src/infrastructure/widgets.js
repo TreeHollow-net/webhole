@@ -513,7 +513,7 @@ class LoginPopupSelf extends Component {
                 电话号码&nbsp;
                 <input
                   ref={this.username_ref}
-                  type="email"
+                  type="tel"
                   autoFocus={true}
                   defaultValue=""
                 />
