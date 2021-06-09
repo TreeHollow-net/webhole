@@ -17,7 +17,7 @@ import appicon_course_survey from './appicon/course_survey.png';
 import appicon_dropdown from './appicon/dropdown.png';
 import appicon_dropdown_rev from './appicon/dropdown_rev.png';
 import appicon_homepage from './appicon/homepage.png';
-import { THUHOLE_API_ROOT } from './const';
+import { TREEHOLLOW_API_ROOT } from './const';
 import { get_json, API_VERSION_PARAM } from './functions';
 
 import {
@@ -102,7 +102,7 @@ const FALLBACK_APPS = {
   fix: {},
 };
 // const SWITCHER_DATA_VER='switcher_2';
-// const SWITCHER_DATA_URL=THUHOLE_API_ROOT+'web_static/appswitcher_items.json';
+// const SWITCHER_DATA_URL=TREEHOLLOW_API_ROOT+'web_static/appswitcher_items.json';
 
 // export class AppSwitcher extends Component {
 //     constructor(props) {
@@ -335,7 +335,7 @@ class LoginPopupSelf extends Component {
       },
       () => {
         fetch(
-          THUHOLE_API_ROOT +
+          TREEHOLLOW_API_ROOT +
             'security/login/send_code' +
             '?user=' +
             encodeURIComponent(this.username_ref.current.value) +
@@ -394,7 +394,7 @@ class LoginPopupSelf extends Component {
       },
       () => {
         fetch(
-          THUHOLE_API_ROOT +
+          TREEHOLLOW_API_ROOT +
             'security/login/login' +
             '?user=' +
             encodeURIComponent(this.username_ref.current.value) +
@@ -446,7 +446,7 @@ class LoginPopupSelf extends Component {
   //     },
   //     () => {
   //       fetch(
-  //         THUHOLE_API_ROOT +
+  //         TREEHOLLOW_API_ROOT +
   //           'contents/system_msg?user_token=' +
   //           encodeURIComponent(token) +
   //           API_VERSION_PARAM(),

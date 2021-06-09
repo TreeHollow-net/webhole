@@ -14,10 +14,10 @@ import copy from 'copy-to-clipboard';
 import { cache } from './cache';
 import {
   // API_VERSION_PARAM,
-  // THUHOLE_API_ROOT,
+  // TREEHOLLOW_API_ROOT,
   // API,
   get_json,
-  THUHOLE_API_ROOT,
+  TREEHOLLOW_API_ROOT,
   token_param,
 } from './flows_api';
 
@@ -340,7 +340,7 @@ export function InfoSidebar(props) {
 //             loading_status: 'loading',
 //           },
 //           () => {
-//             fetch(THUHOLE_API_ROOT + 'api_xmcp/hole/reset_usertoken', {
+//             fetch(TREEHOLLOW_API_ROOT + 'api_xmcp/hole/reset_usertoken', {
 //               method: 'post',
 //               headers: {
 //                 'Content-Type': 'application/json',
@@ -675,7 +675,7 @@ export class PostForm extends Component {
     data.append('user_token', this.props.token);
     if (img) data.append('data', img);
 
-    fetch(THUHOLE_API_ROOT + path + token_param(this.props.token), {
+    fetch(TREEHOLLOW_API_ROOT + path + token_param(this.props.token), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
