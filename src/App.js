@@ -43,10 +43,8 @@ class App extends Component {
     this.on_pressure_bound = this.on_pressure.bind(this);
     // a silly self-deceptive approach to ban guests, enough to fool those muggles
     //                     document             cookie                    'pku_ip_flag=yes'
-    this.inthu_flag =
-      window[atob('ZG9jdW1lbnQ')][atob('Y29va2ll')].indexOf(
-        atob('dGh1X2lwX2ZsYWc9eWVz'),
-      ) !== -1;
+    this.allow_guest =
+      window["document"]["cookie"].indexOf("allow_guest=yes",) !== -1;
   }
 
   static is_darkmode() {
@@ -190,7 +188,7 @@ class App extends Component {
                     </div>
                   </div>
                 )}
-              {this.inthu_flag || token.value ? (
+              {this.allow_guest || token.value ? (
                 (this.state.override_suicide ||
                   !needShowSuicidePrompt(this.state.search_text)) && (
                     <SwitchTransition mode="out-in">
