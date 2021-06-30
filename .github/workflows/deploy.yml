@@ -21,11 +21,7 @@ jobs:
           REPO_NAME: ${{ github.event.repository.full_name }}
           BRANCH_NAME: ${{ env.branch_name }}
         run: |
-          if [ "$BRANCH_NAME" = "master" ]; then
-            export DEPLOY_BRANCH="gh-pages-master"
-          else
-            export DEPLOY_BRANCH="gh-pages"
-          fi
+          export DEPLOY_BRANCH="gh-pages-$BRANCH_NAME"
           echo "deploy_branch=${DEPLOY_BRANCH}"  >> $GITHUB_ENV
           CDN_URL="https://cdn.jsdelivr.net/gh/${REPO_NAME}@${DEPLOY_BRANCH}"
           #CDN_URL="."
