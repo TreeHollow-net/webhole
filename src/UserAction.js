@@ -14,10 +14,10 @@ import copy from 'copy-to-clipboard';
 import { cache } from './cache';
 import {
   // API_VERSION_PARAM,
-  // THUHOLE_API_ROOT,
+  // TREEHOLLOW_API_ROOT,
   // API,
   get_json,
-  THUHOLE_API_ROOT,
+  TREEHOLLOW_API_ROOT,
   token_param,
 } from './flows_api';
 
@@ -243,7 +243,7 @@ export function InfoSidebar(props) {
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://github.com/thuhole/thuhole-go-backend/issues"
+          href={process.env.REACT_APP_FEEDBACK_URL}
           target="_blank"
         >
           <span className="icon icon-github" />
@@ -262,7 +262,7 @@ export function InfoSidebar(props) {
       </div>
       <div className="box help-desc-box">
         <p>
-          T大树洞 网页版 by @thuhole， 基于&nbsp;
+          {process.env.REACT_APP_TITLE} 网页版 by {process.env.REACT_APP_AUTHOR}， 基于&nbsp;
           <a
             href="https://www.gnu.org/licenses/gpl-3.0.zh-cn.html"
             target="_blank"
@@ -270,13 +270,13 @@ export function InfoSidebar(props) {
             GPLv3
           </a>
           &nbsp;协议在{' '}
-          <a href="https://github.com/thuhole/webhole" target="_blank">
+          <a href={process.env.REACT_APP_CODE_URL} target="_blank">
             GitHub
           </a>{' '}
           开源
         </p>
         <p>
-          T大树洞 网页版的诞生离不开&nbsp;
+          {process.env.REACT_APP_TITLE} 网页版的诞生离不开&nbsp;
           <a
             href="https://github.com/pkuhelper-web/webhole"
             target="_blank"
@@ -340,7 +340,7 @@ export function InfoSidebar(props) {
 //             loading_status: 'loading',
 //           },
 //           () => {
-//             fetch(THUHOLE_API_ROOT + 'api_xmcp/hole/reset_usertoken', {
+//             fetch(TREEHOLLOW_API_ROOT + 'api_xmcp/hole/reset_usertoken', {
 //               method: 'post',
 //               headers: {
 //                 'Content-Type': 'application/json',
@@ -454,7 +454,7 @@ export class LoginForm extends Component {
                       <p>
                         <small>
                           {process.env.REACT_APP_TITLE}
-                          面向T大学生，通过T大邮箱验证您的身份并提供服务。
+                          面向学生提供服务。
                         </small>
                       </p>
                     </div>
@@ -675,7 +675,7 @@ export class PostForm extends Component {
     data.append('user_token', this.props.token);
     if (img) data.append('data', img);
 
-    fetch(THUHOLE_API_ROOT + path + token_param(this.props.token), {
+    fetch(TREEHOLLOW_API_ROOT + path + token_param(this.props.token), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

@@ -1,8 +1,8 @@
 import { API_VERSION_PARAM } from './infrastructure/functions';
-import { THUHOLE_API_ROOT } from './infrastructure/const';
+import { TREEHOLLOW_API_ROOT } from './infrastructure/const';
 import { cache } from './cache';
 
-export { THUHOLE_API_ROOT, API_VERSION_PARAM };
+export { TREEHOLLOW_API_ROOT, API_VERSION_PARAM };
 
 export function token_param(token) {
   return API_VERSION_PARAM() + (token ? '&user_token=' + token : '');
@@ -48,7 +48,7 @@ export const API = {
   load_replies: (pid, token, color_picker) => {
     pid = parseInt(pid);
     return fetch(
-      THUHOLE_API_ROOT + 'contents/post/detail?pid=' + pid + token_param(token),
+      TREEHOLLOW_API_ROOT + 'contents/post/detail?pid=' + pid + token_param(token),
     )
       .then(get_json)
       .then((json) => {
@@ -100,7 +100,7 @@ export const API = {
     data.append('pid', pid);
     data.append('switch', attention ? '1' : '0');
     let response = await fetch(
-      THUHOLE_API_ROOT + 'edit/attention?' + token_param(token),
+      TREEHOLLOW_API_ROOT + 'edit/attention?' + token_param(token),
       {
         method: 'POST',
         headers: {
@@ -122,7 +122,7 @@ export const API = {
     data.append('reason', reason);
     data.append('type', report_type);
     return fetch(
-      THUHOLE_API_ROOT + 'edit/report/' + item_type + '?' + token_param(token),
+      TREEHOLLOW_API_ROOT + 'edit/report/' + item_type + '?' + token_param(token),
       {
         method: 'POST',
         headers: {
@@ -141,7 +141,7 @@ export const API = {
 
   get_list: async (page, token) => {
     let response = await fetch(
-      THUHOLE_API_ROOT +
+      TREEHOLLOW_API_ROOT +
         'contents/post/list' +
         '?page=' +
         page +
@@ -153,7 +153,7 @@ export const API = {
   get_search: async (page, keyword, token, is_attention = false) => {
     console.log(is_attention === true ? '/attentions' : '');
     let response = await fetch(
-      THUHOLE_API_ROOT +
+      TREEHOLLOW_API_ROOT +
         'contents/search' +
         (is_attention === true ? '/attentions' : '') +
         '?pagesize=' +
@@ -169,7 +169,7 @@ export const API = {
 
   get_attention: async (page, token) => {
     let response = await fetch(
-      THUHOLE_API_ROOT +
+      TREEHOLLOW_API_ROOT +
         'contents/post/attentions?page=' +
         page +
         token_param(token),
