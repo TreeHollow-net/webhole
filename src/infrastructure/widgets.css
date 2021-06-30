@@ -207,7 +207,7 @@ a.app-switcher-item, .app-switcher-item a {
     cursor: unset;
 }
 
-.thuhole-login-popup {
+.hole-login-popup {
     font-size: 1rem;
     background-color: #f7f7f7;
     color: black;
@@ -219,19 +219,19 @@ a.app-switcher-item, .app-switcher-item a {
     transform: translateX(-50%) translateY(-50%);
     border-radius: 5px;
 }
-.thuhole-login-popup a {
+.hole-login-popup a {
     color: #00c;
 }
-.thuhole-login-popup p {
+.hole-login-popup p {
     margin: .75em 0;
     text-align: center;
 }
 /* override ant design */
-.thuhole-login-popup input, .thuhole-login-popup button {
+.hole-login-popup input, .hole-login-popup button {
     font-size: .85em;
     vertical-align: middle;
 }
-.thuhole-login-popup input:not([type="checkbox"]) {
+.hole-login-popup input:not([type="checkbox"]) {
     width: 8rem;
     border-radius: 5px;
     border: 1px solid black;
@@ -240,7 +240,7 @@ a.app-switcher-item, .app-switcher-item a {
     padding: 0 .5em;
     line-height: 2em;
 }
-.thuhole-login-popup button {
+.hole-login-popup button {
     width: 6rem;
     color: black;
     background-color: rgba(235,235,235,.5);
@@ -250,18 +250,18 @@ a.app-switcher-item, .app-switcher-item a {
     line-height: 2em;
     margin: 0 .5rem;
 }
-.thuhole-login-popup button:hover {
+.hole-login-popup button:hover {
     background-color: rgba(255,255,255,.7);
 }
-.thuhole-login-popup button:disabled {
+.hole-login-popup button:disabled {
     background-color: rgba(128,128,128,.5);
 }
-.thuhole-login-type {
+.hole-login-type {
     display: inline-block;
     width: 6rem;
     margin: 0 .5rem;
 }
-.thuhole-login-popup-shadow {
+.hole-login-popup-shadow {
     opacity: .5;
     background-color: black;
     position: fixed;
@@ -272,7 +272,7 @@ a.app-switcher-item, .app-switcher-item a {
     z-index: 114514;
 }
 
-.thuhole-login-popup label.perm-item {
+.hole-login-popup label.perm-item {
     font-size: .8em;
     vertical-align: .1rem;
     margin-left: .5rem;

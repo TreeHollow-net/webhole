@@ -278,8 +278,8 @@ class RecaptchaV2Popup extends Component {
         {this.props.children(this.on_popup_bound)}
         {this.state.popup_show && (
           <div>
-            <div className="thuhole-login-popup-shadow" />
-            <div className="thuhole-login-popup">
+            <div className="hole-login-popup-shadow" />
+            <div className="hole-login-popup">
               <div className="g-recaptcha">
                 <ReCAPTCHA
                   ref={(el) => {
@@ -503,22 +503,22 @@ class LoginPopupSelf extends Component {
           />
         )}
         <div>
-          <div className="thuhole-login-popup-shadow" />
-          <div className="thuhole-login-popup">
+          <div className="hole-login-popup-shadow" />
+          <div className="hole-login-popup">
             <p>
               <b>接收验证码来登录 {process.env.REACT_APP_TITLE}</b>
             </p>
             <p>
               <label>
-                电话号码&nbsp;
+              &nbsp;&nbsp;邮箱&nbsp;
                 <input
                   ref={this.username_ref}
-                  type="tel"
+                  type="email"
                   autoFocus={true}
-                  defaultValue=""
+                  defaultValue="@mail.utoronto.ca"
                 />
               </label>
-              <span className="thuhole-login-type">
+              <span className="hole-login-type">
                 {/*<a onClick={(e)=>this.do_sendcode('sms')}>*/}
                 {/*    &nbsp;短信&nbsp;*/}
                 {/*</a>*/}

@@ -241,14 +241,14 @@ export function InfoSidebar(props) {
           <span className="icon icon-textfile" />
           <label>树洞规范</label>
         </a>
-        &nbsp;&nbsp;
+        {/* &nbsp;&nbsp;
         <a
           href={process.env.REACT_APP_FEEDBACK_URL}
           target="_blank"
         >
           <span className="icon icon-github" />
           <label>意见反馈</label>
-        </a>
+        </a> */}
       </div>
       <div className="box help-desc-box">
         <p>
@@ -260,7 +260,7 @@ export function InfoSidebar(props) {
       <div className="box help-desc-box">
         <p>联系我们：{process.env.REACT_APP_CONTACT_EMAIL}</p>
       </div>
-      <div className="box help-desc-box">
+      {/* <div className="box help-desc-box">
         <p>
           {process.env.REACT_APP_TITLE} 网页版 by {process.env.REACT_APP_AUTHOR}， 基于&nbsp;
           <a
@@ -312,7 +312,7 @@ export function InfoSidebar(props) {
           </a>
           &nbsp;for more details.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -386,7 +386,7 @@ export class LoginForm extends Component {
   copy_token(token) {
     if (copy(token))
       alert(
-        '复制成功！\n请一定不要泄露给其他人，或在thuhole.com以外的其他网站中输入token，否则可能会导致信息泄漏哦',
+        '复制成功！\n请一定不要泄露给其他人，或在本网站以外的其他网站中输入token，否则可能会导致信息泄漏哦',
       );
   }
 
