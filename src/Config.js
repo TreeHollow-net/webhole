@@ -4,8 +4,10 @@ import './Config.css';
 import { HighlightedMarkdown } from './Common';
 
 const BUILTIN_IMGS = {
+  './static/bg/toronto.jpg':
+    '多伦多风光（默认）',
   './static/bg/gbp.jpg':
-    '寻觅繁星（默认）',
+    '寻觅繁星',
   './static/bg/eriri.jpg':
     '平成著名画师',
   './static/bg/yurucamp.jpg':
@@ -14,15 +16,13 @@ const BUILTIN_IMGS = {
     '麦恩·库拉夫特',
   './static/bg/cyberpunk.jpg':
     '赛博城市',
-  './static/bg/bj.jpg':
-    '城市的星光',
   './static/bg/sif.jpg':
     '梦开始的地方',
 };
 
 const DEFAULT_CONFIG = {
   background_img:
-    './static/bg/bj.jpg',
+    './static/bg/toronto.jpg',
   background_color: '#113366',
   pressure: false,
   easter_egg: true,
