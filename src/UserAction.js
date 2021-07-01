@@ -436,8 +436,7 @@ export class LoginForm extends Component {
                       复制 User Token
                     </a>
                     <br />
-                    复制 User Token
-                    可以在新设备登录，切勿告知他人。若怀疑被盗号请重新邮箱验证码登录以重置Token。
+                    复制 User Token 可以<b>同时</b>在多设备登录。
                     {/*，若怀疑被盗号请尽快 <ResetUsertokenWidget token={token.value} />*/}
                   </p>
                 </div>
