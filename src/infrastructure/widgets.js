@@ -436,42 +436,42 @@ class LoginPopupSelf extends Component {
     );
   }
 
-  // do_input_token(set_token) {
-  //   if (this.state.loading_status === 'loading') return;
+  do_input_token(set_token) {
+    if (this.state.loading_status === 'loading') return;
 
-  //   let token = this.input_token_ref.current.value;
-  //   this.setState(
-  //     {
-  //       loading_status: 'loading',
-  //     },
-  //     () => {
-  //       fetch(
-  //         TREEHOLLOW_API_ROOT +
-  //           'contents/system_msg?user_token=' +
-  //           encodeURIComponent(token) +
-  //           API_VERSION_PARAM(),
-  //       )
-  //         .then((res) => res.json())
-  //         .then((json) => {
-  //           if (json.error) throw new Error(json.error);
-  //           if (json.result.length === 0)
-  //             throw new Error('result check failed');
-  //           this.setState({
-  //             loading_status: 'done',
-  //           });
-  //           set_token(token);
-  //           this.props.on_close();
-  //         })
-  //         .catch((e) => {
-  //           alert('Token检验失败\n' + e);
-  //           this.setState({
-  //             loading_status: 'done',
-  //           });
-  //           console.error(e);
-  //         });
-  //     },
-  //   );
-  // }
+    let token = this.input_token_ref.current.value;
+    this.setState(
+      {
+        loading_status: 'loading',
+      },
+      () => {
+        fetch(
+          TREEHOLLOW_API_ROOT +
+            'contents/system_msg?user_token=' +
+            encodeURIComponent(token) +
+            API_VERSION_PARAM(),
+        )
+          .then((res) => res.json())
+          .then((json) => {
+            if (json.error) throw new Error(json.error);
+            if (json.result.length === 0)
+              throw new Error('result check failed');
+            this.setState({
+              loading_status: 'done',
+            });
+            set_token(token);
+            this.props.on_close();
+          })
+          .catch((e) => {
+            alert('Token检验失败\n' + e);
+            this.setState({
+              loading_status: 'done',
+            });
+            console.error(e);
+          });
+      },
+    );
+  }
 
   // perm_alert() {
   //     alert('如果你不需要 PKU Helper 的某项功能，可以取消相应权限。\n其中【状态信息】包括你的网费、校园卡余额等。\n该设置应用到你的【所有】设备，取消后如需再次启用相应功能需要重新登录。');
@@ -510,7 +510,7 @@ class LoginPopupSelf extends Component {
             </p>
             <p>
               <label>
-              &nbsp;&nbsp;邮箱&nbsp;
+              学校邮箱
                 <input
                   ref={this.username_ref}
                   type="email"
@@ -557,7 +557,7 @@ class LoginPopupSelf extends Component {
                 登录
               </button>
             </p>
-            {/* <hr />
+            <hr />
             <p>
               <b>从其他设备导入登录状态</b>
             </p>
@@ -570,7 +570,7 @@ class LoginPopupSelf extends Component {
               >
                 导入
               </button>
-            </p> */}
+            </p>
             <hr />
             <p style={{ fontSize: 11 }}>
               This site is protected by reCAPTCHA and the Google{' '}
