@@ -311,6 +311,7 @@ class LoginPopupSelf extends Component {
       // excluded_scopes: [],
     };
     this.username_ref = React.createRef();
+    this.mail_suffix_ref = React.createRef()
     this.password_ref = React.createRef();
     this.input_token_ref = React.createRef();
 
@@ -336,16 +337,17 @@ class LoginPopupSelf extends Component {
       () => {
         fetch(
           TREEHOLLOW_API_ROOT +
-            'security/login/send_code' +
-            '?user=' +
-            encodeURIComponent(this.username_ref.current.value) +
-            '&code_type=' +
-            encodeURIComponent(type) +
-            '&recaptcha_version=' +
-            encodeURIComponent(recaptcha_version) +
-            '&recaptcha_token=' +
-            localStorage['recaptcha'] +
-            API_VERSION_PARAM(),
+          'security/login/send_code' +
+          '?user=' +
+          encodeURIComponent(this.username_ref.current.value) +
+          encodeURIComponent(this.mail_suffix_ref.current.value) +
+          '&code_type=' +
+          encodeURIComponent(type) +
+          '&recaptcha_version=' +
+          encodeURIComponent(recaptcha_version) +
+          '&recaptcha_token=' +
+          localStorage['recaptcha'] +
+          API_VERSION_PARAM(),
           {
             method: 'POST',
             headers: {
@@ -395,12 +397,13 @@ class LoginPopupSelf extends Component {
       () => {
         fetch(
           TREEHOLLOW_API_ROOT +
-            'security/login/login' +
-            '?user=' +
-            encodeURIComponent(this.username_ref.current.value) +
-            '&valid_code=' +
-            encodeURIComponent(this.password_ref.current.value) +
-            API_VERSION_PARAM(),
+          'security/login/login' +
+          '?user=' +
+          encodeURIComponent(this.username_ref.current.value) +
+          encodeURIComponent(this.mail_suffix_ref.current.value) +
+          '&valid_code=' +
+          encodeURIComponent(this.password_ref.current.value) +
+          API_VERSION_PARAM(),
           {
             method: 'POST',
             headers: {
@@ -447,9 +450,9 @@ class LoginPopupSelf extends Component {
       () => {
         fetch(
           TREEHOLLOW_API_ROOT +
-            'contents/system_msg?user_token=' +
-            encodeURIComponent(token) +
-            API_VERSION_PARAM(),
+          'contents/system_msg?user_token=' +
+          encodeURIComponent(token) +
+          API_VERSION_PARAM(),
         )
           .then((res) => res.json())
           .then((json) => {
@@ -510,14 +513,27 @@ class LoginPopupSelf extends Component {
             </p>
             <p>
               <label>
-              学校邮箱
+                学校邮箱
                 <input
                   ref={this.username_ref}
                   type="email"
                   autoFocus={true}
-                  defaultValue="@mail.utoronto.ca"
+                  defaultValue=""
                 />
+                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+              </label> 
+
+            </p>
+            <p>
+              <label>
+              &nbsp;邮箱后缀
+                <select ref={this.mail_suffix_ref}>
+                  <option value="@mail.utoronto.ca">@mail.utoronto.ca</option>
+                  <option value="@mylaurier.ca">@mylaurier.ca</option>
+                  <option value="@uwaterloo.ca">@uwaterloo.ca</option>
+                </select>
               </label>
+
               <span className="hole-login-type">
                 {/*<a onClick={(e)=>this.do_sendcode('sms')}>*/}
                 {/*    &nbsp;短信&nbsp;*/}
