@@ -913,7 +913,7 @@ class FlowSidebar extends PureComponent {
             on_complete={this.load_replies.bind(this)}
           />
         ) : (
-          <div className="box box-tip flow-item">登录后可以回复树洞</div>
+          <div className="box box-tip flow-item">登录后可以查看评论并回复树洞</div>
         )}
       </div>
     );
