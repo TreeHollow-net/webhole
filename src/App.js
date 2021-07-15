@@ -9,6 +9,7 @@ import { load_config, bgimg_style } from './Config';
 import { listen_darkmode } from './infrastructure/functions';
 import { LoginPopup, TitleLine } from './infrastructure/widgets';
 import { cache } from './cache';
+import { HighlightedMarkdown } from './Common';
 import './App.css';
 
 const MAX_SIDEBAR_STACK_SIZE = 10;
@@ -27,7 +28,7 @@ class App extends Component {
     load_config();
     listen_darkmode(
       { default: undefined, light: false, dark: true }[
-        window.config.color_scheme
+      window.config.color_scheme
       ],
     );
     this.state = {
@@ -149,6 +150,18 @@ class App extends Component {
                       </LoginPopup>
                     </p>
                   </div>
+                  <div className="box box-tip">
+                    <p>
+                      <h3>公告栏</h3>
+                      <HighlightedMarkdown
+                        text="若收不到邮件，请检查垃圾邮件！"
+                      />
+                      {/* <hr />
+                      <HighlightedMarkdown
+                        text="[一些链接？](https://www.google.com)"
+                      /> */}
+                    </p>
+                  </div>
                 </div>
               )}
               {needShowSuicidePrompt(this.state.search_text) &&
@@ -190,22 +203,22 @@ class App extends Component {
                 )}
               {this.allow_guest || token.value ? (
                 (this.state.override_suicide ||
-                  !needShowSuicidePrompt(this.state.search_text)) && (
-                    <SwitchTransition mode="out-in">
-                      <CSSTransition
+                !needShowSuicidePrompt(this.state.search_text)) && (
+                  <SwitchTransition mode="out-in">
+                    <CSSTransition
+                      key={this.state.flow_render_key}
+                      timeout={100}
+                      classNames="flows-anim"
+                    >
+                      <Flow
                         key={this.state.flow_render_key}
-                        timeout={100}
-                        classNames="flows-anim"
-                      >
-                        <Flow
-                          key={this.state.flow_render_key}
-                          show_sidebar={this.show_sidebar_bound}
-                          mode={this.state.mode}
-                          search_text={this.state.search_text}
-                          token={token.value}
-                        />
-                      </CSSTransition>
-                    </SwitchTransition>
+                        show_sidebar={this.show_sidebar_bound}
+                        mode={this.state.mode}
+                        search_text={this.state.search_text}
+                        token={token.value}
+                      />
+                    </CSSTransition>
+                  </SwitchTransition>
                 )
               ) : (
                 <TitleLine text="请登录后查看内容" />

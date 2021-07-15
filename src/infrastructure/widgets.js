@@ -325,7 +325,7 @@ class LoginPopupSelf extends Component {
 
   do_sendcode(type, do_popup, recaptcha_version) {
     if (!this.state.recaptcha_verified) {
-      alert('reCAPTCHA风控系统正在评估您的浏览器安全状态，请稍后重试。');
+      alert('正在评估您的安全状态，请刷新页面重试......');
       return;
     }
     if (this.state.loading_status === 'loading') return;
@@ -531,6 +531,9 @@ class LoginPopupSelf extends Component {
                   <option value="@mail.utoronto.ca">@mail.utoronto.ca</option>
                   <option value="@mylaurier.ca">@mylaurier.ca</option>
                   <option value="@uwaterloo.ca">@uwaterloo.ca</option>
+                  <option value="@mail.mcgill.ca">@mail.mcgill.ca</option>
+                  <option value="@queensu.ca">@queensu.ca</option>
+                  <option value="@student.monash.edu">@student.monash.edu</option>
                 </select>
               </label>
 
@@ -572,6 +575,9 @@ class LoginPopupSelf extends Component {
               >
                 登录
               </button>
+            </p>
+            <p>
+              注意：若收不到邮件，请检查<b>垃圾邮件</b>！
             </p>
             <hr />
             <p>
