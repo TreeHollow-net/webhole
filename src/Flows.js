@@ -222,9 +222,9 @@ class Reply extends PureComponent {
         style={
           this.props.info._display_color
             ? {
-                '--box-bgcolor-light': this.props.info._display_color[0],
-                '--box-bgcolor-dark': this.props.info._display_color[1],
-              }
+              '--box-bgcolor-light': this.props.info._display_color[0],
+              '--box-bgcolor-dark': this.props.info._display_color[1],
+            }
             : null
         }
       >
@@ -442,27 +442,24 @@ class FlowItem extends PureComponent {
   copy_link(event) {
     event.preventDefault();
     copy(
-      `${event.target.href}${
-        this.props.info.tag ? ' 【' + this.props.info.tag + '】' : ''
+      `${event.target.href}${this.props.info.tag ? ' 【' + this.props.info.tag + '】' : ''
       }\n` +
-        `${this.props.info.text}${
-          this.props.info.type === 'image'
-            ? ' [图片]'
-            : this.props.info.type === 'audio'
-            ? ' [语音]'
-            : ''
-        }\n` +
-        `（${format_time(new Date(this.props.info.timestamp * 1000))} ${
-          this.props.info.likenum
-        }关注 ${this.props.info.reply}回复）\n` +
-        this.props.replies
-          .map(
-            (r) =>
-              (r.tag ? '【' + r.tag + '】' : '') +
-              r.text +
-              (r.type === 'image' ? ' [图片]' : ''),
-          )
-          .join('\n'),
+      `${this.props.info.text}${this.props.info.type === 'image'
+        ? ' [图片]'
+        : this.props.info.type === 'audio'
+          ? ' [语音]'
+          : ''
+      }\n` +
+      `（${format_time(new Date(this.props.info.timestamp * 1000))} ${this.props.info.likenum
+      }关注 ${this.props.info.reply}回复）\n` +
+      this.props.replies
+        .map(
+          (r) =>
+            (r.tag ? '【' + r.tag + '】' : '') +
+            r.text +
+            (r.type === 'image' ? ' [图片]' : ''),
+        )
+        .join('\n'),
     );
   }
 
@@ -551,7 +548,7 @@ class FlowSidebar extends PureComponent {
       rev: false,
     };
     this.color_picker = props.color_picker;
-    this.syncState = props.sync_state || (() => {});
+    this.syncState = props.sync_state || (() => { });
     this.reply_ref = React.createRef();
   }
 
@@ -739,7 +736,7 @@ class FlowSidebar extends PureComponent {
                       <span className="icon icon-flag" />
                       <label>
                         {this.state.info.permissions.includes('delete') &&
-                        !this.state.info.permissions.includes('delete_ban')
+                          !this.state.info.permissions.includes('delete_ban')
                           ? '撤回'
                           : '举报'}
                       </label>
@@ -837,72 +834,72 @@ class FlowSidebar extends PureComponent {
             <p>{this.state.error_msg}</p>
           </div>
         )}
-        {replies_to_show.map((reply, i) => (
-          <LazyLoad
-            key={i}
-            offset={1500}
-            height="5em"
-            overflow={true}
-            once={true}
-          >
-            <ClickHandler
-              callback={(e) => {
-                this.show_reply_bar(reply.name, e);
-              }}
+        {!!this.props.token &&
+          replies_to_show.map((reply, i) => (
+            <LazyLoad
+              key={i}
+              offset={1500}
+              height="5em"
+              overflow={true}
+              once={true}
             >
-              <Reply
-                info={reply}
-                color_picker={this.color_picker}
-                show_pid={show_pid}
-                in_sidebar={true}
-                set_variant={(variant) => {
-                  this.set_variant(reply.cid, variant);
+              <ClickHandler
+                callback={(e) => {
+                  this.show_reply_bar(reply.name, e);
                 }}
-                header_badges={
-                  <>
-                    {reply.permissions.length > 0 &&
-                      (!reply.variant.report_widget ? (
+              >
+                <Reply
+                  info={reply}
+                  color_picker={this.color_picker}
+                  show_pid={show_pid}
+                  in_sidebar={true}
+                  set_variant={(variant) => {
+                    this.set_variant(reply.cid, variant);
+                  }}
+                  header_badges={
+                    <>
+                      {reply.permissions.length > 0 &&
+                        (!reply.variant.report_widget ? (
+                          <span
+                            className="reply-header-badge clickable"
+                            onClick={() => {
+                              this.set_variant(reply.cid, {
+                                report_widget: true,
+                              });
+                            }}
+                          >
+                            <span className="icon icon-flag" />
+                          </span>
+                        ) : (
+                          <span
+                            className="reply-header-badge clickable"
+                            onClick={() => {
+                              this.set_variant(reply.cid, {
+                                report_widget: false,
+                              });
+                            }}
+                          >
+                            <span className="icon icon-flag" />
+                            <label>取消</label>
+                          </span>
+                        ))}
+                      {replies_cnt[reply.name] > 1 && (
                         <span
                           className="reply-header-badge clickable"
                           onClick={() => {
-                            this.set_variant(reply.cid, {
-                              report_widget: true,
-                            });
+                            this.set_filter_name(reply.name);
                           }}
                         >
-                          <span className="icon icon-flag" />
-                          {/*<label>举报</label>*/}
+                          <span className="icon icon-locate" />
                         </span>
-                      ) : (
-                        <span
-                          className="reply-header-badge clickable"
-                          onClick={() => {
-                            this.set_variant(reply.cid, {
-                              report_widget: false,
-                            });
-                          }}
-                        >
-                          <span className="icon icon-flag" />
-                          <label>取消</label>
-                        </span>
-                      ))}
-                    {replies_cnt[reply.name] > 1 && (
-                      <span
-                        className="reply-header-badge clickable"
-                        onClick={() => {
-                          this.set_filter_name(reply.name);
-                        }}
-                      >
-                        <span className="icon icon-locate" />
-                        {/*<label>只看</label>*/}
-                      </span>
-                    )}
-                  </>
-                }
-              />
-            </ClickHandler>
-          </LazyLoad>
-        ))}
+                      )}
+                    </>
+                  }
+                />
+              </ClickHandler>
+            </LazyLoad>
+          ))
+        }
         {this.state.rev && main_thread_elem}
         {this.props.token ? (
           <PostForm
@@ -1101,7 +1098,7 @@ class FlowItemRow extends PureComponent {
                 show_pid={show_pid}
                 header_badges={null}
                 in_sidebar={false}
-                set_variant={(v) => {}}
+                set_variant={(v) => { }}
               />
             );
           } else return null;
@@ -1124,7 +1121,7 @@ class FlowItemRow extends PureComponent {
             show_pid={show_pid}
             header_badges={null}
             in_sidebar={false}
-            set_variant={(v) => {}}
+            set_variant={(v) => { }}
           />
         ));
     }
@@ -1148,7 +1145,7 @@ class FlowItemRow extends PureComponent {
           search_param={this.props.search_param}
           show_pid={show_pid}
           replies={this.state.replies}
-          set_variant={(v) => {}}
+          set_variant={(v) => { }}
           header_badges={
             <>
               {!!this.state.info.likenum && (
@@ -1172,6 +1169,9 @@ class FlowItemRow extends PureComponent {
           }
         />
         <div className="flow-reply-row">
+          {!this.props.token && (
+            <div className="box box-tip">登录后可以查看评论并回复树洞</div>
+          )}
           {this.state.reply_status === 'loading' && (
             <div className="box box-tip">加载中</div>
           )}
@@ -1189,7 +1189,7 @@ class FlowItemRow extends PureComponent {
               <p>{this.state.reply_error}</p>
             </div>
           )}
-          {showing_replies}
+          {!!this.props.token && showing_replies}
           {this.state.replies.length > shown_results && (
             <div className="box box-tip">
               还有 {this.state.replies.length - shown_results} 条
@@ -1454,7 +1454,7 @@ export class Flow extends PureComponent {
                       has_update = true;
                       DoUpdate(
                         versions_remote[0] > versions_local[0] ||
-                          versions_remote[1] > versions_local[1],
+                        versions_remote[1] > versions_local[1],
                       );
                     }
                   }
