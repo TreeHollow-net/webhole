@@ -497,7 +497,7 @@ class FlowItem extends PureComponent {
             {props.info.tag !== null && props.info.tag !== '折叠' && (
               <span className="box-header-tag">{props.info.tag}</span>
             )}
-            <Time stamp={props.info.timestamp} short={!props.in_sidebar} />
+            <Time stamp={this.props.info.timestamp} short={false} />
           </div>
           {props.info.deleted && (
             <p key="deleted-hint" className="flow-variant-warning">
@@ -1243,7 +1243,7 @@ class FlowItemRow extends PureComponent {
                       {this.props.info.tag}
                     </span>
                   )}
-                <Time stamp={this.props.info.timestamp} short={true} />
+                <Time stamp={this.props.info.timestamp} short={false} />
                 <span className="box-header-badge">
                   {this.needFold ? '已隐藏' : '已屏蔽'}
                 </span>

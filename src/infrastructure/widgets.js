@@ -32,9 +32,12 @@ function pad2(x) {
   return x < 10 ? '0' + x : '' + x;
 }
 export function format_time(time) {
-  return `${time.getMonth() + 1}-${pad2(
+  // return `${time.getMonth() + 1}-${pad2(
+  //   time.getDate(),
+  // )} ${time.getHours()}:${pad2(time.getMinutes())}:${pad2(time.getSeconds())}`;
+   return `${time.getMonth() + 1}-${pad2(
     time.getDate(),
-  )} ${time.getHours()}:${pad2(time.getMinutes())}:${pad2(time.getSeconds())}`;
+  )}`;
 }
 const chinese_format = buildFormatter(chineseStrings);
 export function Time(props) {
