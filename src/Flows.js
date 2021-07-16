@@ -1172,10 +1172,10 @@ class FlowItemRow extends PureComponent {
           {!this.props.token && (
             <div className="box box-tip">登录后可以查看评论并回复树洞</div>
           )}
-          {this.state.reply_status === 'loading' && (
+          {!!this.props.token && this.state.reply_status === 'loading' && (
             <div className="box box-tip">加载中</div>
           )}
-          {this.state.reply_status === 'failed' && (
+          {!!this.props.token && this.state.reply_status === 'failed' && (
             <div className="box box-tip">
               <p>
                 <a
@@ -1190,7 +1190,7 @@ class FlowItemRow extends PureComponent {
             </div>
           )}
           {!!this.props.token && showing_replies}
-          {this.state.replies.length > shown_results && (
+          {!!this.props.token && this.state.replies.length > shown_results && (
             <div className="box box-tip">
               还有 {this.state.replies.length - shown_results} 条
             </div>
