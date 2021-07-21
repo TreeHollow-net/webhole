@@ -342,7 +342,7 @@ class LoginPopupSelf extends Component {
           TREEHOLLOW_API_ROOT +
           'security/login/send_code' +
           '?user=' +
-          encodeURIComponent(this.username_ref.current.value) +
+          encodeURIComponent(this.username_ref.current.valuetoLowerCase()) +
           encodeURIComponent(this.mail_suffix_ref.current.value) +
           '&code_type=' +
           encodeURIComponent(type) +
@@ -402,7 +402,7 @@ class LoginPopupSelf extends Component {
           TREEHOLLOW_API_ROOT +
           'security/login/login' +
           '?user=' +
-          encodeURIComponent(this.username_ref.current.value) +
+          encodeURIComponent(this.username_ref.current.valuetoLowerCase()) +
           encodeURIComponent(this.mail_suffix_ref.current.value) +
           '&valid_code=' +
           encodeURIComponent(this.password_ref.current.value) +

@@ -344,7 +344,7 @@ function ReportWidget(props) {
       {!props.info.permissions.includes('set_tag') &&
         props.info.permissions.includes('fold') && (
           <p>
-            <button onClick={() => report('fold')}>折叠</button>
+            <button onClick={() => report('fold')}>举报折叠</button>
             <select
               value={fold_reason}
               onChange={(e) => set_fold_reason(e.target.value)}
@@ -365,7 +365,7 @@ function ReportWidget(props) {
         !props.info.permissions.includes('undelete_unban') &&
         props.info.permissions.includes('report') && (
           <p>
-            <button onClick={() => report('report')}>删除</button>
+            <button onClick={() => report('report')}>举报删除</button>
             <span className="report-reason">
               这条{props.is_reply ? '回复' : '树洞'}违反
               <a href={process.env.REACT_APP_RULES_URL} target="_blank">
