@@ -1634,7 +1634,7 @@ export class Flow extends PureComponent {
         ) : (
           <FlowChunk
             title={!!this.props.token ? this.state.chunks.title : "未登录用户仅能查看最近三条，请登录查看更多"}
-            list={!!this.props.token ? this.state.chunks.data : this.state.chunks.data.slice(0,3)}
+            list={!!this.props.token ? this.state.chunks.data : this.state.chunks.data.slice(0,4)}
             mode={this.state.mode}
             search_param={this.state.search_param || null}
             show_sidebar={this.props.show_sidebar}
