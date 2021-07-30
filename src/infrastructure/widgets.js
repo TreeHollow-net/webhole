@@ -314,7 +314,6 @@ class LoginPopupSelf extends Component {
       // excluded_scopes: [],
     };
     this.username_ref = React.createRef();
-    this.mail_suffix_ref = React.createRef()
     this.password_ref = React.createRef();
     this.input_token_ref = React.createRef();
 
@@ -343,7 +342,6 @@ class LoginPopupSelf extends Component {
           'security/login/send_code' +
           '?user=' +
           encodeURIComponent(this.username_ref.current.value.toLowerCase()) +
-          encodeURIComponent(this.mail_suffix_ref.current.value) +
           '&code_type=' +
           encodeURIComponent(type) +
           '&recaptcha_version=' +
@@ -403,7 +401,6 @@ class LoginPopupSelf extends Component {
           'security/login/login' +
           '?user=' +
           encodeURIComponent(this.username_ref.current.value.toLowerCase()) +
-          encodeURIComponent(this.mail_suffix_ref.current.value) +
           '&valid_code=' +
           encodeURIComponent(this.password_ref.current.value) +
           API_VERSION_PARAM(),
@@ -516,25 +513,14 @@ class LoginPopupSelf extends Component {
             </p>
             <p>
               <label>
-                学校邮箱
+                学校邮箱&nbsp; 
                 <input
                   ref={this.username_ref}
                   type="email"
                   autoFocus={true}
-                  defaultValue=""
+                  defaultValue="@ruc.edu.cn"
                 />
-                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
               </label> 
-
-            </p>
-            <p>
-              <label>
-              &nbsp;邮箱后缀
-                <select ref={this.mail_suffix_ref}>
-                  <option value="@ruc.edu.cn">@ruc.edu.cn</option>
-                </select>
-              </label>
-
               <span className="hole-login-type">
                 {/*<a onClick={(e)=>this.do_sendcode('sms')}>*/}
                 {/*    &nbsp;短信&nbsp;*/}
