@@ -4,8 +4,8 @@ import './Config.css';
 import { HighlightedMarkdown } from './Common';
 
 const BUILTIN_IMGS = {
-  './static/bg/toronto.jpg':
-    '多伦多风光（默认）',
+  './static/bg/ruc.jpg':
+    '玉兰带来春的消息（默认）',
   './static/bg/gbp.jpg':
     '寻觅繁星',
   './static/bg/eriri.jpg':
@@ -22,7 +22,7 @@ const BUILTIN_IMGS = {
 
 const DEFAULT_CONFIG = {
   background_img:
-    './static/bg/toronto.jpg',
+    './static/bg/ruc.jpg',
   background_color: '#113366',
   pressure: false,
   easter_egg: true,

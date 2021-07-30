@@ -154,7 +154,7 @@ class App extends Component {
                     <p>
                       <h3>公告栏</h3>
                       <HighlightedMarkdown
-                        text="若收不到邮件，请检查垃圾邮件！如有其他问题，欢迎联系：[treeuoft@gmail.com](mailto:treeuoft@gmail.com)"
+                        text="若收不到邮件，请检查垃圾邮件！如有其他问题，欢迎联系：[support@treehollow.net](mailto:support@treehollow.net)"
                       />
                       {/* <hr />
                       <HighlightedMarkdown

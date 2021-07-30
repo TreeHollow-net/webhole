@@ -531,12 +531,7 @@ class LoginPopupSelf extends Component {
               <label>
               &nbsp;邮箱后缀
                 <select ref={this.mail_suffix_ref}>
-                  <option value="@mail.utoronto.ca">@mail.utoronto.ca</option>
-                  <option value="@mylaurier.ca">@mylaurier.ca</option>
-                  <option value="@uwaterloo.ca">@uwaterloo.ca</option>
-                  <option value="@mail.mcgill.ca">@mail.mcgill.ca</option>
-                  <option value="@queensu.ca">@queensu.ca</option>
-                  <option value="@student.monash.edu">@student.monash.edu</option>
+                  <option value="@ruc.edu.cn">@ruc.edu.cn</option>
                 </select>
               </label>
 
