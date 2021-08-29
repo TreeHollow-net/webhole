@@ -537,6 +537,7 @@ class LoginPopupSelf extends Component {
                   <option value="@mail.mcgill.ca">@mail.mcgill.ca</option>
                   <option value="@queensu.ca">@queensu.ca</option>
                   <option value="@student.monash.edu">@student.monash.edu</option>
+                  <option value="@uottawa.ca">@uottawa.ca</option>
                 </select>
               </label>
 
